@@ -2,3 +2,43 @@
   Conversation between
   <%= @conversation.participants.pluck('user_name').join(', ') %>
 </h1>
+
+<div width="400">
+  <div class="participant me">
+    <%= @current_user.user_name %>
+  </div>
+
+  <%
+    @conversation.participants.each do |user|
+      next if user == @current_user
+  %>
+    <div class="participant not-me">
+      <%= user.user_name %>
+    </div>
+ <% end %>
+
+ <%
+   @conversation.messages.each do |message|
+    classes = ['message']
+    classes << if message.author_id != @current_user.id
+                 'not-me'
+               else
+                 'me'
+               end
+ %>
+<div class="<%= classes.join(' ')%>">
+  <%= message.content %>
+</div>
+<% end %>
+</div>
+
+<%= form_tag(conversation_messages_path(conversation_id: @conversation.id), method: 'post') do %>
+  <%= text_area_tag(:content, '', size: '51x4') %>
+  <%= hidden_field_tag(:author_id, @current_user.id) %>
+  <br />
+  <%= submit_tag('Send message') %>
+<% end %>
+
+  <script language="javascript">
+    setInterval("location.reload();", 20000);
+  </script>

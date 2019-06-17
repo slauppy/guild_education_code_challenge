@@ -2,7 +2,7 @@
 
 <h2>Continue existing conversation:</h2>
 <% @current_user.conversations.each do |convo| %>
-  <%= link_to "Fill me in with other person's name", convo %><br />
+  <%= link_to convo.participants.map(&:user_name).join(' - '), conversation_path(id: convo.id, current_user: @current_user.id) %><br />
 <% end %>
 
 <h2>New conversation:</h2>
@@ -10,7 +10,8 @@
   <%= link_to(
     user.user_name,
     conversations_path(params: {
-      participants: [@current_user.id, user.id ]
+      participants: [@current_user.id, user.id ],
+      current_user: @current_user.id
     }),
     method: :post
   ) %>

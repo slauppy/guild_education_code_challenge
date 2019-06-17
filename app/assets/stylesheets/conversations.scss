@@ -1,0 +1,25 @@
+div.participant {
+  display: inline-block;
+  width: 190px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+div.message {
+  display: block;
+  width: 400px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid black;
+}
+
+div.not-me {
+  text-align: right;
+  padding-left: 25px;
+  color: purple;
+}
+
+div.me {
+  text-align: left;
+  padding-right: 25px;
+}

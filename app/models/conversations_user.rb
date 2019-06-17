@@ -1,3 +1,4 @@
+# TODO: rename to ConversationUser
 class ConversationsUser < ApplicationRecord
   belongs_to :conversation
   belongs_to :user
