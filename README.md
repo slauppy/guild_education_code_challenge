@@ -15,7 +15,9 @@ Visit localhost:3000 in your browser!
 
 ## Technical overview
 
-This is a straightforward app designed with traditional Rails practices. We have three main models:
+This is a straightforward app designed with traditional Rails practices. I picked the Rails framework with Postgres on the backend because it is easy to get up and running quickly with this stack.
+
+We have three main models in the appplication:
 - User
 - Conversation
 - Message
