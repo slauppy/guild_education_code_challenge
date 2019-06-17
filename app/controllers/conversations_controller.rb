@@ -13,6 +13,6 @@ class ConversationsController < ApplicationController
       )
     end
 
-    redirect_to convo
+    redirect_to conversation_path(id: convo.id, current_user: params[:current_user])
   end
 end
