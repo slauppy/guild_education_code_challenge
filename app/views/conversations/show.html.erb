@@ -1,0 +1,4 @@
+<h1>
+  Conversation between
+  <%= @conversation.participants.pluck('user_name').join(', ') %>
+</h1>

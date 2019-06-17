@@ -1,0 +1,12 @@
+<h1>Welcome to chatter!</h1>
+
+<% if @users.any? %>
+  <h2>Who are you?</h2>
+  <% @users.each do |user| %>
+    <%= link_to user.user_name, user_path(user) %><br />
+  <% end %>
+
+  <h2>None of the above?</h2>
+<% end %>
+
+<%= link_to "Create new user", controller: 'users', action: 'new' %>

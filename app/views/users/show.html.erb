@@ -1,0 +1,18 @@
+<h1>Hi <%= @current_user.user_name %>!</h1>
+
+<h2>Continue existing conversation:</h2>
+<% @current_user.conversations.each do |convo| %>
+  <%= link_to "Fill me in with other person's name", convo %><br />
+<% end %>
+
+<h2>New conversation:</h2>
+<% @other_users.each do |user| %>
+  <%= link_to(
+    user.user_name,
+    conversations_path(params: {
+      participants: [@current_user.id, user.id ]
+    }),
+    method: :post
+  ) %>
+  <br />
+<% end %>
