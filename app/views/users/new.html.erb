@@ -1,0 +1,9 @@
+<h1>Create new user</h1>
+
+<%= form_tag(users_path, method: 'post') do %>
+  <%= label(:user_name, 'User name:') %>
+  <%= text_field_tag('user_name') %>
+  <br />
+  <%= submit_tag('Create') %>
+<% end %>
+
